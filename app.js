@@ -1,10 +1,14 @@
+
 const express= require('express');
 const dotenv = require('dotenv');
 const app = express();
-const dbconnect = require('./config/db');
-const ordenesRoutes = require('./routes/ordenes');
 
-dotenv.config();
+const ordenesRoutes = require('./routes/ordenes');
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+dotenv.config();    
+
 
 
 app.use(express.json());
@@ -16,6 +20,15 @@ app.get("/",(req, res)=> {
 });
 app.use("/api", ordenesRoutes);
 
+const dbconnect= async() => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+        console.log('Conectado a la base de datos');
+    } catch (error) {
+        console.error('Error al conectar a la base de datos', error.message);
+    }
+};
+
 
 
 dbconnect().then(() => {
@@ -26,3 +39,4 @@ dbconnect().then(() => {
     console.error('No se pudo conectar a la base de datos', err);
 });
 
+module.exports= dbconnect;

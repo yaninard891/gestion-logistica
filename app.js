@@ -1,6 +1,7 @@
 
 const express= require('express');
 const dotenv = require('dotenv');
+const dbconnect= require ("./config/db")
 const app = express();
 
 const ordenesRoutes = require('./routes/ordenes');
@@ -8,8 +9,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 dotenv.config();    
-
-
+dbconnect();
 
 app.use(express.json());
 
@@ -20,23 +20,11 @@ app.get("/",(req, res)=> {
 });
 app.use("/api", ordenesRoutes);
 
-const dbconnect= async() => {
-    try {
-        await mongoose.connect(process.env.MONGO_URI);
-        console.log('Conectado a la base de datos');
-    } catch (error) {
-        console.error('Error al conectar a la base de datos', error.message);
-    }
-};
-
-
-
 dbconnect().then(() => {
     app.listen(3000, () => {
-        console.log('Servidor escuchando en el puerto 3000');
+        console.log('El servidor está corriendo en el puerto 3000');
     });
-}).catch(err => {
-    console.error('No se pudo conectar a la base de datos', err);
-});
 
-module.exports= dbconnect;
+}).catch(err => {
+    console.log('No se pudo iniciar el servidor debido a un error en la base de datos');
+});

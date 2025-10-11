@@ -5,11 +5,15 @@ const orden=require("../models/orden");
 router.get ("/ordenes", async (req, res) => {
     try {
         const {estado}=req.query;
-        const filtro= estado ? {estado}: {};
-        const resultados= await Modelo.find(filtro);
+        let ordenes;
+        if (estado) {
+            ordenes= await orden.find({estado});
+        } else {
+            ordenes= await orden.find();
+        }
+        res.json(ordenes);
 
-        const ordenes = await orden.find();
-        res.status(200).send(ordenes);
+    
     } catch (error) {
         res.status(500).send({mensaje: "Error al obtener las órdenes", error });
     }
@@ -62,5 +66,6 @@ router.get ("/ordenes", async (req, res) => {
                 res.status(500).send({ mensaje: "Error al eliminar la orden", error });
             }
         });
+
         module.exports=router;
         

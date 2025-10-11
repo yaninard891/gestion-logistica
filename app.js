@@ -1,11 +1,22 @@
 const express= require('express');
+const dotenv = require('dotenv');
 const app = express();
 const dbconnect = require('./config/db');
 const ordenesRoutes = require('./routes/ordenes');
 
+dotenv.config();
+dbconnect();
 
 app.use(express.json());
 app.use(ordenesRoutes);
+
+app.get("/",(req, res)=> {
+    res.send("Api de gestion logistica");
+
+});
+app.use("/api", ordenesRoutes);
+
+
 
 dbconnect().then(() => {
     app.listen(3000, () => {

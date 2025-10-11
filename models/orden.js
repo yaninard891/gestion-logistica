@@ -1,6 +1,6 @@
-const mongose= require("mongoose");
+const mongoose= require("mongoose");
 
-const ordenSchema = new mongose.Schema({
+const ordenSchema = new mongoose.Schema({
     destino: { type: String, required: true },
     contenido: { type: String, required: true },
     fecha_creacion: { type: Date, default: Date.now },
@@ -9,4 +9,4 @@ const ordenSchema = new mongose.Schema({
 {timestamps: true}
 );
 
-module.export= mongose.model("orden", ordenSchema)
+module.exports= mongoose.model("Orden", ordenSchema)

@@ -5,10 +5,10 @@ const dbconnect = require('./config/db');
 const ordenesRoutes = require('./routes/ordenes');
 
 dotenv.config();
-dbconnect();
+
 
 app.use(express.json());
-app.use(ordenesRoutes);
+
 
 app.get("/",(req, res)=> {
     res.send("Api de gestion logistica");

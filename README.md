@@ -60,16 +60,27 @@ json
 
 Instalacion Local
 1- Instalar dependencias:
+
+ ``` 
+ bash
 npm install
+ ```
 
 2- Configurar variables de entorno:
 Crear archivo .env con:
+
+ ```
+ bash
 MONGODB_URI=tu_mongodb_connection_string
 PORT=3000
+ ```
 
 3- Ejecutar en desarrollo:
-npm start
 
+ ```
+ bash
+npm start
+ ```
 La API esta disponible en http://localhost:3000
 
 Configuracion:

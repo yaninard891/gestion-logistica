@@ -22,7 +22,8 @@ Tenologías utilizadas
 
 Estructura del Proyecto
 
- ` ` `
+ ``` 
+ bash
 ├──config/
 │   ├── corsOption.js     # Configuración de Cors
 │   └── dn.js     # Configuración de MongoDB
@@ -32,7 +33,7 @@ Estructura del Proyecto
 │   └── ordenes.js     # Rutas de la API
 ├── app.js     # Configuración principal de Express
 └── vercel.json     # Configuración de Vercel
- ` ` `
+```
 
 
 API Endpoints
@@ -45,7 +46,8 @@ DEL api/ordenes/:id -Eliminar una Orden por ID
 
 Estructura de la Orden
 
- ` ` `
+```
+json
 {
 "_id": "string",
 "destino": "string",
@@ -53,8 +55,8 @@ Estructura de la Orden
 "fecha_creacion": "date",
 "estado":  "string"
 }
- ` ` `
- 
+```
+
 
 Instalacion Local
 1- Instalar dependencias:

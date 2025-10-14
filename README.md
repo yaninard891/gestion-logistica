@@ -64,7 +64,7 @@ npm install
 
 2- Configurar variables de entorno:
 Crear archivo .env con:
-MONGO_URI= mongodb+srv://admin:molly12@api-logistica.7dxwpqg.mongodb.net/?retryWrites=true&w=majority&appName=api-logistica
+MONGODB_URI=tu_mongodb_connection_string
 PORT=3000
 
 3- Ejecutar en desarrollo:

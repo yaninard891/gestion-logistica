@@ -22,15 +22,18 @@ Tenologías utilizadas
 
 Estructura del Proyecto
 
-├── config/
+ ` ` `
+├──config/
 │   ├── corsOption.js     # Configuración de Cors
 │   └── dn.js     # Configuración de MongoDB
 ├── models/
 │   └── orden.js     # Modelo de Mongoose para las ordenes
 ├── routes/
 │   └── ordenes.js     # Rutas de la API
-└── app.js     # Configuración principal de Express
-├── vercel.json     # Configuración de Vercel
+├── app.js     # Configuración principal de Express
+└── vercel.json     # Configuración de Vercel
+ ` ` `
+
 
 API Endpoints
 GET /api/ordenes -Obtener todas las ordenes
@@ -41,6 +44,8 @@ PUT /api/ordenes/:id -Actualizar una orden por ID
 DEL api/ordenes/:id -Eliminar una Orden por ID
 
 Estructura de la Orden
+
+ ` ` `
 {
 "_id": "string",
 "destino": "string",
@@ -48,6 +53,8 @@ Estructura de la Orden
 "fecha_creacion": "date",
 "estado":  "string"
 }
+ ` ` `
+ 
 
 Instalacion Local
 1- Instalar dependencias:

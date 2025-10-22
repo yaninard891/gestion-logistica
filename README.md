@@ -37,12 +37,17 @@ Estructura del Proyecto
 
 
 API Endpoints
+
+ ``` 
+ bash
 GET /api/ordenes -Obtener todas las ordenes
 GET /api/ordenes?estado= -Filtrar ordenes por "Pendiente", "En transito" y "Entregada"
 GET /api/ordenes/:id -Obtener una orden por ID
 POST /api/ordenes/ -Crear nueva orden
 PUT /api/ordenes/:id -Actualizar una orden por ID
 DEL api/ordenes/:id -Eliminar una Orden por ID
+ ``` 
+ 
 
 Estructura de la Orden
 

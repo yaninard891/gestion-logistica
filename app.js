@@ -10,7 +10,7 @@ const ordenesRoutes = require('./routes/ordenes');
 
 
 dotenv.config();
-dbconnect();
+dbconnect().then(() => {
 app.use(cors(corsOption));
 
 app.use(express.json());
@@ -25,10 +25,10 @@ app.get("/",(req, res)=> {
 
 app.use("/api", ordenesRoutes);
 
-dbconnect().then(() => {
+const PORT = process.env.PORT || 3000;
     app.listen(3000, () => {
         console.log('El servidor está corriendo en el puerto 3000');
-        console.log("CORS configurado para http://localhost:5173");
+       console.log("CORS configurado para:", corsOption.origin.join(", "));
     });
 
 }).catch(err => {
